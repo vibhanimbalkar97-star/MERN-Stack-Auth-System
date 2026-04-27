@@ -134,3 +134,10 @@ const logout = asyncHandler(async (req, res) => {
   clearRefreshTokenCookie(res);
   res.status(201).json({ message: "Logout successfully" });
 });
+
+module.exports = {
+  register,
+  login,
+  logout,
+  refreshToken
+}
