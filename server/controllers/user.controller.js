@@ -38,3 +38,9 @@ const gerProfile = asyncHandler(async (req, res) => {
 
   res.status(200).json(user);
 });
+
+module.exports = {
+  getUsers,
+  deleteUser,
+  getProfile
+}

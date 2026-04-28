@@ -34,3 +34,8 @@ const verifyRole = (role) => {
     next();
   };
 };
+
+module.exports = {
+  verifyToken,
+  verifyRole
+}
