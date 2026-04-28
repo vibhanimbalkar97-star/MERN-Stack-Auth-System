@@ -29,7 +29,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 });
 
 // get user info
-const gerProfile = asyncHandler(async (req, res) => {
+const getProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id).select("-password");
   if (!user) {
     res.status(404);
