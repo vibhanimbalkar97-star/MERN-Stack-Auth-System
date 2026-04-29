@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/user.model.js");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const {
   generateAccessToken,
   generateRefreshToken,
@@ -38,6 +38,7 @@ const register = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
   });
+  await user.save()
 
   if (user) {
     res.status(201).json({
