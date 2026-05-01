@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http", //FE url
+    origin: "http://localhost:5173", //FE url
     credentials: true,
   }),
 );
