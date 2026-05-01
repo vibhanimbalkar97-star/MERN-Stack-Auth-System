@@ -19,6 +19,6 @@ const userSchema = mongoose.Schema({
     default: "user",
     enum: ["admin", "user"], //role is admin or user only
   },
-});
+}, {timestamps:true});
 
 module.exports = mongoose.model("User", userSchema);
