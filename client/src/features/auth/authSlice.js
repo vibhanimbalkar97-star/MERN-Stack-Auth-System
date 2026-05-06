@@ -50,7 +50,7 @@ export const registerUser = createAsyncThunk("auth/register", async(formData, th
 const initialState = {
   user: null,
   accessToken: null,
-  isLoading: false,
+  isLoading: true,
   isError: false,
   isSuccess: false,
   message: "",
