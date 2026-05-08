@@ -105,6 +105,8 @@ export const userSlice = createSlice({
       // users
       .addCase(fetchUsers.pending, (state) => {
         state.isLoading = true;
+        state.isError = false;
+        state.message = "";
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -121,6 +123,8 @@ export const userSlice = createSlice({
       // delete
       .addCase(removeUser.pending, (state) => {
         state.isLoading = true;
+        state.isError = false;
+        state.message = "";
       })
 
       .addCase(removeUser.fulfilled, (state, action) => {

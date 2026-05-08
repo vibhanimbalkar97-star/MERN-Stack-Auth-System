@@ -10,19 +10,21 @@ import PublicRoute from "./components/PublicRoute";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { refreshToken } from "./features/auth/authSlice";
+import Home from "./components/Home";
 
 function App() {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshToken())
-  }, [dispatch])
-  
+    dispatch(refreshToken());
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Navbar />
+
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="/login"
           element={
@@ -31,9 +33,14 @@ function App() {
             </PublicRoute>
           }
         />
-        <Route path="/register" element={ <PublicRoute>
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
               <Register />
-            </PublicRoute>} />
+            </PublicRoute>
+          }
+        />
         <Route
           path="/admin"
           element={

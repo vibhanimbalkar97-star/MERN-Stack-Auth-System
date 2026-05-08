@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { registerUser } from "../features/auth/authSlice";
+import { registerUser, reset } from "../features/auth/authSlice";
 
 const register = () => {
   const [form, setForm] = useState ({
@@ -13,6 +13,10 @@ const register = () => {
   const { isError, message } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  useEffect(() => {
+      dispatch(reset())
+    }, [dispatch])
 
   const handleRegister = async(e) => {
     e.preventDefault()
