@@ -18,7 +18,6 @@ const Login = () => {
     e.preventDefault()
   try{
     const res = await dispatch(loginUser(form)).unwrap()
-    console.log(res)
    navigate(res.user.role === 'admin' ? '/admin' : '/user')
   } catch(error){
    console.error(error)
