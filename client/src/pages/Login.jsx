@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser, reset } from "../features/auth/authSlice";
@@ -12,10 +12,6 @@ const Login = () => {
   const { isError, message } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(reset())
-  }, [dispatch])
 
   const handleLogin = async (e) => {
     e.preventDefault();

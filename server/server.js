@@ -7,6 +7,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/auth.route.js");
 const userRoutes = require("./routes/users.route.js");
+const errorHandler = require("./middleware/error.middleware.js");
 
 // db connection
 connectDB();
@@ -24,6 +25,9 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+
+// error middleware always at bottom
+app.use(errorHandler);
 
 app.listen(PORT, (req, res) => {
   console.log(`Port started at ${PORT}`);

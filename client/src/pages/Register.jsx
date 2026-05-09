@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { registerUser, reset } from "../features/auth/authSlice";
 
-const register = () => {
+const Register = () => {
   const [form, setForm] = useState ({
     username: "",
     email: "",
@@ -14,14 +14,13 @@ const register = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  useEffect(() => {
-      dispatch(reset())
-    }, [dispatch])
+ 
 
   const handleRegister = async(e) => {
     e.preventDefault()
     try {
     await dispatch(registerUser(form)).unwrap()
+     dispatch(reset());
     navigate('/login')
     } catch(err){
       console.error(err)
@@ -71,4 +70,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;
