@@ -5,7 +5,7 @@ const asyncHandler = require("express-async-handler");
 const verifyToken = asyncHandler(async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
-  if (!authHeader) {
+  if (!authHeader && !authHeader.startsWith("Bearer")) {
     res.status(404);
     throw new Error("No token provided");
   }
