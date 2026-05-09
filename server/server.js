@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: true, //FE url
+    origin: "https://mern-stack-auth-system.vercel.app", //FE url
     credentials: true,
   }),
 );
