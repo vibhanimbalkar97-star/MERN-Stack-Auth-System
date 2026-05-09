@@ -16,12 +16,15 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:5173", //FE url
+    origin: true, //FE url
     credentials: true,
   }),
 );
 
 app.use(cookieParser());
+
+// for cookies important on render
+app.set("trust proxy", 1);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
